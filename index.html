@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div id="particles-js"></div>
+
+    <!-- Music (Optional) -->
+    <!-- <audio id="bg-music" loop>
+        <source src="background_music.mp3" type="audio/mp3">
+    </audio> -->
+
+    <!-- Page 1: Proposal -->
+    <section id="proposal-page">
+        <div class="container">
+            <h1 class="main-heading">Will you be my Valentine? 💖</h1>
+
+            <div class="panda-container">
+                <img src="assets/panda_ask.png" alt="Cute panda asking" class="main-image">
+            </div>
+
+            <div class="buttons-container">
+                <button id="btn-yes">Yes 💕</button>
+                <button id="btn-no">No 🙈</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: Celebration & Valentine Week -->
+    <section id="celebration-page" class="hidden">
+        <div class="container">
+            <h1 class="celebration-heading">Thank you! ❤️</h1>
+            <p class="sub-text">I love you so much! 🥰</p>
+
+            <h2 class="week-title">Valentine Week Surprises 🐼💗</h2>
+
+            <div class="week-grid" id="week-grid">
+                <!-- 
+                    TEMPLATE FOR DAY 1: ROSE DAY (Feb 7)
+                    Edit the "hidden-content" div to change your message! 
+                -->
+                <div class="card" data-date="02-07" data-title="Rose Day 🌹" data-image="assets/rose_day.png">
+                    <div class="card-front">
+                        <img src="assets/rose_day.png" alt="Rose Day">
+                        <div class="card-title">Rose Day 🌹</div>
+                    </div>
+                    <!-- WRITE YOUR MESSAGE BELOW inside this div -->
+                    <div class="hidden-content">
+                        Happy Rose Day, my love! 🌹<br>
+                        This is the beginning of our Valentine week.<br>
+                        I love you more than words can say! ❤️
+                    </div>
+                    <!-- END OF MESSAGE -->
+                    <div class="lock-overlay hidden">🔒</div>
+                </div>
+
+                <!-- TEMPLATE FOR DAY 2: PROPOSE DAY (Feb 8) -->
+                <div class="card" data-date="02-08" data-title="Propose Day 💍" data-image="assets/propose_day.png">
+                    <div class="card-front">
+                        <img src="assets/propose_day.png" alt="Propose Day">
+                        <div class="card-title">Propose Day 💍</div>
+                    </div>
+                    <div class="hidden-content">
+                        I have a question for you... 💍<br>
+                        Will you be mine, today and forever?<br>
+                        (I hope the answer is Yes! 🙈)
+                    </div>
+                    <div class="lock-overlay hidden">🔒</div>
+                </div>
+
+                <!-- TEMPLATE FOR DAY 3: CHOCOLATE DAY (Feb 9) -->
+                <div class="card" data-date="02-09" data-title="Chocolate Day 🍫" data-image="assets/chocolate_day.png">
+                    <div class="card-front">
+                        <img src="assets/chocolate_day.png" alt="Chocolate Day">
+                        <div class="card-title">Chocolate Day 🍫</div>
+                    </div>
+                    <div class="hidden-content">
+                        You are sweeter than any chocolate! 🍫<br>
+                        Sending you lots of sweetness today.<br>
+                        I wish I could share this chocolate with you right now! 😋
+                    </div>
+                    <div class="lock-overlay hidden">🔒</div>
+                </div>
+
+                <!-- TEMPLATE FOR DAY 4: TEDDY DAY (Feb 10) -->
+                <div class="card" data-date="02-10" data-title="Teddy Day 🧸" data-image="assets/teddy_day.png">
+                    <div class="card-front">
+                        <img src="assets/teddy_day.png" alt="Teddy Day">
+                        <div class="card-title">Teddy Day 🧸</div>
+                    </div>
+                    <div class="hidden-content">
+                        Sending you a big warm bear hug! 🧸<br>
+                        Imagine this teddy is me hugging you tight.<br>
+                        Miss you! 🤗
+                    </div>
+                    <div class="lock-overlay hidden">🔒</div>
+                </div>
+
+                <!-- TEMPLATE FOR DAY 5: PROMISE DAY (Feb 11) -->
+                <div class="card" data-date="02-11" data-title="Promise Day 🤝" data-image="assets/promise_day.png">
+                    <div class="card-front">
+                        <img src="assets/promise_day.png" alt="Promise Day">
+                        <div class="card-title">Promise Day 🤝</div>
+                    </div>
+                    <div class="hidden-content">
+                        On this Promise Day, I promise... 🤝<br>
+                        To always stand by your side.<br>
+                        To make you smile every day.<br>
+                        To love you endlessly. ❤️
+                    </div>
+                    <div class="lock-overlay hidden">🔒</div>
+                </div>
+
+                <!-- TEMPLATE FOR DAY 6: HUG DAY (Feb 12) -->
+                <div class="card" data-date="02-12" data-title="Hug Day 🤗" data-image="assets/hug_day.png">
+                    <div class="card-front">
+                        <img src="assets/hug_day.png" alt="Hug Day">
+                        <div class="card-title">Hug Day 🤗</div>
+                    </div>
+                    <div class="hidden-content">
+                        A tight hug to take all your stress away! 🤗<br>
+                        I feel so safe and happy when I'm with you.<br>
+                        Sending virtual hugs! 💕
+                    </div>
+                    <div class="lock-overlay hidden">🔒</div>
+                </div>
+
+                <!-- TEMPLATE FOR DAY 7: KISS DAY (Feb 13) -->
+                <div class="card" data-date="02-13" data-title="Kiss Day 💋" data-image="assets/kiss_day.png">
+                    <div class="card-front">
+                        <img src="assets/kiss_day.png" alt="Kiss Day">
+                        <div class="card-title">Kiss Day 💋</div>
+                    </div>
+                    <div class="hidden-content">
+                        A sweet kiss for my favorite person! 💋<br>
+                        Mwah! 😘<br>
+                        Can't wait to see you!
+                    </div>
+                    <div class="lock-overlay hidden">🔒</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Day Details -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-wrapper">
+            <span class="close-modal">&times;</span>
+            <div class="modal-content">
+                <h2 id="modal-title">Variable Day</h2>
+                <img id="modal-image" src="" alt="Day Illustration">
+                <p id="modal-message">Your custom message here...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
