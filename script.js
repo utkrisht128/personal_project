@@ -118,8 +118,10 @@ function initWeekGrid() {
         // Get the hidden content HTML from inside the card div
         const messageHtml = card.querySelector('.hidden-content').innerHTML;
 
-        const isToday = currentMD === dateStr;
-        const isUnlocked = DEBUG_MODE || isToday;
+        // Compare current date (MM-DD) with card date.
+        // Since the format is MM-DD, a string comparison works correctly for dates within the same year.
+        // e.g., "02-11" >= "02-07" is true.
+        const isUnlocked = DEBUG_MODE || (currentMD >= dateStr);
 
         const lockOverlay = card.querySelector('.lock-overlay');
 
@@ -128,21 +130,34 @@ function initWeekGrid() {
             if (lockOverlay) lockOverlay.classList.add('hidden');
 
             // Add click event for modal
-            card.addEventListener('click', () => {
+            // Remove previous event listeners by cloning logic if necessary, or just rely on the fact that
+            // this function runs once or cleans up.
+            // Since initWeekGrid might be called multiple times (e.g., on "Yes" click), 
+            // but the element starts fresh or we just attach.
+            // Actually, adding event listeners repeatedly is bad.
+            // But looking at the code, `initWeekGrid` is called when "Yes" is clicked.
+            // The cards exist in HTML.
+            // Let's ensure we don't add duplicate listeners or handle it gracefully.
+            // The original code just did `card.addEventListener`.
+            // A simple way to avoid duplicates without cloning is to check if it already has the handler or use a flag.
+            // However, for this simple app, assuming `initWeekGrid` runs once per session flow (after "Yes") is safer.
+            // Wait, `initWeekGrid` is called in `btnYes.addEventListener`.
+            // The `initWeekGrid` function adds listeners.
+            // If the user clicks "Yes" multiple times (not possible as it hides the section), it's fine.
+            // So we can just add the listener.
+
+            card.onclick = () => {
                 openModal(title, image, messageHtml);
-            });
+            };
+
         } else {
             card.classList.add('locked');
             if (lockOverlay) lockOverlay.classList.remove('hidden');
 
             // Locked click alert
-            card.addEventListener('click', () => {
-                // Remove listeners to avoid duplicates if re-init but init is called once.
-                // Simpler: Just check class in click.
-                if (card.classList.contains('locked')) {
-                    alert(`Come back on ${title} (${dateStr})! 💕`);
-                }
-            });
+            card.onclick = () => {
+                alert(`Come back on ${title} (${dateStr})! 💕`);
+            };
         }
     });
 }
